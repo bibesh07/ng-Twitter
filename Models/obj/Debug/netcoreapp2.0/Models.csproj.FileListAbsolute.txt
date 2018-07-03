@@ -1,0 +1,9 @@
+C:\Users\personal\Desktop\ng-Twitter\Models\bin\Debug\netcoreapp2.0\Models.deps.json
+C:\Users\personal\Desktop\ng-Twitter\Models\bin\Debug\netcoreapp2.0\Models.dll
+C:\Users\personal\Desktop\ng-Twitter\Models\bin\Debug\netcoreapp2.0\Models.pdb
+C:\Users\personal\Desktop\ng-Twitter\Models\obj\Debug\netcoreapp2.0\Models.csprojAssemblyReference.cache
+C:\Users\personal\Desktop\ng-Twitter\Models\obj\Debug\netcoreapp2.0\Models.csproj.CoreCompileInputs.cache
+C:\Users\personal\Desktop\ng-Twitter\Models\obj\Debug\netcoreapp2.0\Models.AssemblyInfoInputs.cache
+C:\Users\personal\Desktop\ng-Twitter\Models\obj\Debug\netcoreapp2.0\Models.AssemblyInfo.cs
+C:\Users\personal\Desktop\ng-Twitter\Models\obj\Debug\netcoreapp2.0\Models.dll
+C:\Users\personal\Desktop\ng-Twitter\Models\obj\Debug\netcoreapp2.0\Models.pdb
