@@ -11130,7 +11130,7 @@
       ]
     },
     "System.Runtime.Serialization.Formatters/4.3.0": {
-      "sha512": "KT591AkTNFOTbhZlaeMVvfax3RqhH1EJlcwF50Wm7sfnBLuHiOeZRRKrr1ns3NESkM20KPZ5Ol/ueMq5vg4QoQ==",
+      "sha512": "Q14MKksyT6Gexa04O0+uSJYIe/qnbujmKJgjMxTXBeTi+FYF2uif+O+sv7GpYBzp6pIH6a1dQTuAh4T3IFtCSg==",
       "type": "package",
       "path": "system.runtime.serialization.formatters/4.3.0",
       "files": [
@@ -11592,7 +11592,7 @@
       ]
     },
     "System.Security.Cryptography.Xml/4.4.2": {
-      "sha512": "1m+fKVrApgKYMRuE0MF0vGjqy4XqAp1rCtyAzMXhJajMDDytMh/rHk9hp4M7KKk3QQZoWJUvyUY7xcw74w+JiQ==",
+      "sha512": "q9Dren/YP5jhRCkDvLfuaPpMTQzP97ANvzq/OoGgwK8YdLRSTABS9oW5/23OKoM2DRCuBrh4qaecD2YNhPtuzQ==",
       "type": "package",
       "path": "system.security.cryptography.xml/4.4.2",
       "files": [
@@ -12790,26 +12790,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\amrit\\.nuget\\packages\\": {},
+    "C:\\Users\\personal\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\amrit\\Desktop\\ng-Twitter\\ng-Twitter\\ng-Twitter\\ng-Twitter.csproj",
+      "projectUniqueName": "C:\\Users\\personal\\Desktop\\ng-Twitter\\ng-Twitter\\ng-Twitter.csproj",
       "projectName": "ng-Twitter",
-      "projectPath": "C:\\Users\\amrit\\Desktop\\ng-Twitter\\ng-Twitter\\ng-Twitter\\ng-Twitter.csproj",
-      "packagesPath": "C:\\Users\\amrit\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\amrit\\Desktop\\ng-Twitter\\ng-Twitter\\ng-Twitter\\obj\\",
+      "projectPath": "C:\\Users\\personal\\Desktop\\ng-Twitter\\ng-Twitter\\ng-Twitter.csproj",
+      "packagesPath": "C:\\Users\\personal\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\personal\\Desktop\\ng-Twitter\\ng-Twitter\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\amrit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\personal\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12822,8 +12819,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\amrit\\Desktop\\ng-Twitter\\ng-Twitter\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\amrit\\Desktop\\ng-Twitter\\ng-Twitter\\Models\\Models.csproj"
+            "C:\\Users\\personal\\Desktop\\ng-Twitter\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\personal\\Desktop\\ng-Twitter\\Models\\Models.csproj"
             }
           }
         }
@@ -12837,22 +12834,22 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.All": {
+            "target": "Package",
+            "version": "[2.0.8, )"
+          },
           "Microsoft.EntityFrameworkCore.Design": {
             "target": "Package",
-            "version": "2.1.1"
-          },
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "2.0.0",
-            "autoReferenced": true
+            "version": "[2.1.1, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
-            "version": "2.1.1"
+            "version": "[2.1.1, )"
           },
-          "Microsoft.AspNetCore.All": {
+          "Microsoft.NETCore.App": {
             "target": "Package",
-            "version": "2.0.8"
+            "version": "[2.0.0, )",
+            "autoReferenced": true
           }
         },
         "imports": [

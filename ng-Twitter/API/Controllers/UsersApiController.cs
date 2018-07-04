@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ng-Twitter.Controllers
+public class UsersApiController
 {
-    public class UserController
-    {
-    }
+
 }
