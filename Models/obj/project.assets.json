@@ -664,23 +664,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\personal\\.nuget\\packages\\": {},
+    "C:\\Users\\amrit\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\personal\\Desktop\\ng-Twitter\\Models\\Models.csproj",
+      "projectUniqueName": "C:\\Users\\amrit\\Desktop\\ng-Twitter\\ng-Twitter\\Models\\Models.csproj",
       "projectName": "Models",
-      "projectPath": "C:\\Users\\personal\\Desktop\\ng-Twitter\\Models\\Models.csproj",
-      "packagesPath": "C:\\Users\\personal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\personal\\Desktop\\ng-Twitter\\Models\\obj\\",
+      "projectPath": "C:\\Users\\amrit\\Desktop\\ng-Twitter\\ng-Twitter\\Models\\Models.csproj",
+      "packagesPath": "C:\\Users\\amrit\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\amrit\\Desktop\\ng-Twitter\\ng-Twitter\\Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\personal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\amrit\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -707,7 +710,7 @@
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.0.0, )",
+            "version": "2.0.0",
             "autoReferenced": true
           }
         },
