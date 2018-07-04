@@ -3,13 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-<<<<<<< HEAD
 using ng_Twitter.Services;
-=======
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
->>>>>>> 4d24078d06044652006888f0bd709007f0254a36
 
 namespace ng_Twitter
 {

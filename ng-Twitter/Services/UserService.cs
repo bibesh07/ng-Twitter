@@ -13,7 +13,7 @@ namespace ng_Twitter.Services
             _context = context;
         }
 
-        public User GetUserByEmail(string Email) => _context.Users.FirstOrDefault(m => m.Email == Email);
+        public User GetUserByEmail(string Email) => _context.Users.First(m => m.Email == Email);
 
         public ICollection<User> GetAllUsers() => _context.Users.ToList();
     }

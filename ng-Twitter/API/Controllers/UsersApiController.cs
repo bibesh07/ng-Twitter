@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Models.Core.Features.Users;
 using ng_Twitter.Services;
-using System.Collections.Generic;
 
 [Route("api/Users")]
 public class UsersApiController : Controller
@@ -14,14 +13,15 @@ public class UsersApiController : Controller
     }
 
     [HttpGet("GetUserByEmail")]
-    public User GetUserByEmail([FromBody] User user)
+    public User GetUserByEmail(User user)
     {
         return _userservice.GetUserByEmail(user.Email);
     }
 
     [HttpGet("GetAllUsers")]
-    public ICollection<User> GetAllUsers()
+    public IActionResult GetAllUsers()
     {
-        return _userservice.GetAllUsers();
+        var result = _userservice.GetAllUsers();
+        return Ok(result);
     }
 }

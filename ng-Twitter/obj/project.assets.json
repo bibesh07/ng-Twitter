@@ -12959,22 +12959,17 @@
             "version": "2.0.0",
             "autoReferenced": true
           },
+          "Swashbuckle.AspNetCore": {
+            "target": "Package",
+            "version": "2.5.0"
+          },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "2.1.1"
           },
           "Microsoft.AspNetCore.All": {
             "target": "Package",
-<<<<<<< HEAD
             "version": "2.0.8"
-=======
-            "version": "[2.0.0, )",
-            "autoReferenced": true
-          },
-          "Swashbuckle.AspNetCore": {
-            "target": "Package",
-            "version": "[2.5.0, )"
->>>>>>> 4d24078d06044652006888f0bd709007f0254a36
           }
         },
         "imports": [
@@ -12984,5 +12979,13 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\amrit\\Desktop\\ng-Twitter\\ng-Twitter\\ng-Twitter\\obj\\ng-Twitter.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
