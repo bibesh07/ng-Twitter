@@ -28,6 +28,6 @@ namespace Models.Core.Features.Users
 
         public DateTime DateJoined { get; set; }
 
-        public ICollection<Tweet> Tweets { get; set; }
+        public IEnumerable<Tweet> Tweets { get; set; }
     }
 }

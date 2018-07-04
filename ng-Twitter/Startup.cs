@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace ng_Twitter
@@ -25,6 +27,14 @@ namespace ng_Twitter
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                options.SerializerSettings.Formatting = Formatting.Indented;
+                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+            });
+
             services.AddMvc();
 
             services.AddSwaggerGen(c =>
@@ -52,6 +62,8 @@ namespace ng_Twitter
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseMiddleware(typeof(ErrorHandlingMiddleware));
 
             app.UseMvc();
         }

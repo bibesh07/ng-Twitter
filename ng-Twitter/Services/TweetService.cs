@@ -1,8 +1,9 @@
 ﻿using ClassLibray.Core.Features.Tweets;
-using System;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
 
 public class TweetService: ITweetService
 {
@@ -14,4 +15,12 @@ public class TweetService: ITweetService
     }
 
     public IEnumerable<Tweet> GetAllTweets() => _dataContext.Tweets.ToList();
+
+    public IEnumerable<Tweet> GetTweetsByUserId(int Id) => _dataContext.Tweets.Where(t => t.UserId == Id).Include(x => x.User);
+
+    public void AddTweet(Tweet tweet)
+    {
+        _dataContext.Tweets.Add(tweet);
+        _dataContext.SaveChanges();
+    }
 }

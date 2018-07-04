@@ -16,19 +16,32 @@ namespace ng_Twitter
     {
         public static void Main(string[] args)
         {
-            var host = BuildWebHost(args);
+
+            var config = new ConfigurationBuilder()
+               .SetBasePath(Directory.GetCurrentDirectory())
+               .AddJsonFile("hosting.json", optional: false, reloadOnChange: true)
+               .Build();
+
+            var host = new WebHostBuilder()
+                .UseKestrel()
+                .UseConfiguration(config)
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseIISIntegration()
+                .UseStartup<Startup>()
+                .Build();
+
+            host.Run();
+
             using (var scope = host.Services.CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<DataContext>();
                 context.Database.Migrate();
                 DbInitilizer.SeedData(context);
             }
+
             host.Run();
+
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
     }
 }
