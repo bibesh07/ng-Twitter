@@ -30,8 +30,6 @@ namespace ng_Twitter
                 .UseStartup<Startup>()
                 .Build();
 
-            host.Run();
-
             using (var scope = host.Services.CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<DataContext>();
