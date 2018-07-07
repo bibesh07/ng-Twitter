@@ -37,7 +37,7 @@ public class DataContext : DbContext
         if (string.IsNullOrEmpty(configuration.GetConnectionString("DefaultConnection")))
             throw new Exception("Connection string (default) not set. Please set them on Repository or Web Project.");
 
-        Console.WriteLine("Using Connection string: {0}",configuration.GetConnectionString("(default)"));
+        Console.WriteLine("Using Connection string: {0}",configuration.GetConnectionString("DefaultConnection"));
         optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
         
     }
