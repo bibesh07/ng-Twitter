@@ -23,7 +23,7 @@ public class DataContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        if(!optionsBuilder.IsConfigured)
+        if (!optionsBuilder.IsConfigured)
         {
             optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=TwitterClone;Trusted_Connection=True");
         }

@@ -3,15 +3,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-<<<<<<< HEAD
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-=======
 using ng_Twitter.Services;
->>>>>>> 89cdd53fe4e8a99e2ea19f587c50993932fdc24f
 using Swashbuckle.AspNetCore.Swagger;
+using System.IO;
 
 namespace ng_Twitter
 {
@@ -64,9 +62,20 @@ namespace ng_Twitter
                 app.UseDeveloperExceptionPage();
             }
 
+            app.Use(async (context, next) => {
+                await next();
+                if (context.Response.StatusCode == 404 &&
+                   !Path.HasExtension(context.Request.Path.Value) &&
+                   !context.Request.Path.Value.StartsWith("/api/"))
+                {
+                    context.Request.Path = "/index.html";
+                    await next();
+                }
+            });
+            app.UseMvcWithDefaultRoute();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             app.UseMiddleware(typeof(ErrorHandlingMiddleware));
-
-            app.UseMvc();
         }
     }
 }

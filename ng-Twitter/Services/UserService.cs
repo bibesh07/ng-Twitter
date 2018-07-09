@@ -15,6 +15,6 @@ namespace ng_Twitter.Services
 
         public User GetUserByEmail(string Email) => _context.Users.First(m => m.Email == Email);
 
-        public ICollection<User> GetAllUsers() => _context.Users.ToList();
+        public IEnumerable<User> GetAllUsers() => _context.Users.ToList();
     }
 }

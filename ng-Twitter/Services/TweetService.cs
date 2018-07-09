@@ -16,7 +16,7 @@ public class TweetService: ITweetService
 
     public IEnumerable<Tweet> GetAllTweets() => _dataContext.Tweets.ToList();
 
-    public IEnumerable<Tweet> GetTweetsByUserId(int Id) => _dataContext.Tweets.Where(t => t.UserId == Id).Include(x => x.User);
+    public IEnumerable<Tweet> GetTweetsByUserId(int Id) => _dataContext.Tweets.Where(t => t.UserId == Id);
 
     public void AddTweet(Tweet tweet)
     {

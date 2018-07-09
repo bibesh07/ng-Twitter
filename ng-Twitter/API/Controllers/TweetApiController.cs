@@ -18,15 +18,17 @@ namespace ng_Twitter.Controllers
         }
 
         [HttpGet("GetAllTweets")]
-        public IEnumerable<Tweet> GetAllTweets()
+        public IActionResult GetAllTweets()
         {
-            return _tweetService.GetAllTweets();
+            var tweets = _tweetService.GetAllTweets();
+            return Ok(tweets);
         }
 
         [HttpGet("GetTweetsByUserId/{id}")]
-        public IEnumerable<Tweet> GetTweetsByUserId(int id)
+        public IActionResult GetTweetsByUserId(int id)
         {
-            return _tweetService.GetTweetsByUserId(id);
+            var tweets =  _tweetService.GetTweetsByUserId(id);
+            return Ok(tweets);
         }
 
         [HttpPost("AddTweet")]
@@ -35,6 +37,5 @@ namespace ng_Twitter.Controllers
             _tweetService.AddTweet(tweet);
             return Ok();
         }
-
     }
 }

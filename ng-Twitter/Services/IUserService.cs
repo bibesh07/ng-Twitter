@@ -6,6 +6,6 @@ namespace ng_Twitter.Services
     public interface IUserService
     {
         User GetUserByEmail(string email);
-        ICollection<User> GetAllUsers();
+        IEnumerable<User> GetAllUsers();
     }
 }
