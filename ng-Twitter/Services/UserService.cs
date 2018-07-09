@@ -16,9 +16,8 @@ namespace ng_Twitter.Services
 
         public User GetUserByEmail(string Email) => _context.Users.Include(t => t.Tweets).First(m => m.Email == Email);
 
-<<<<<<< HEAD
         public IEnumerable<User> GetAllUsers() => _context.Users.ToList();
-=======
+
         public User GetUserById(int id) => _context.Users.Include(t => t.Tweets).First(i => i.Id == id);
 
         public ICollection<User> GetAllUsers() => _context.Users.Include(t => t.Tweets).ToList();
@@ -31,6 +30,5 @@ namespace ng_Twitter.Services
             _context.SaveChanges();
         }
         
->>>>>>> a92bf262c52db305e54a731cac9e4a32e6d94da7
     }
 }
