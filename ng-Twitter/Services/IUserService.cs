@@ -11,8 +11,6 @@ namespace ng_Twitter.Services
 
         User GetUserById(int id);
         
-        ICollection<User> GetAllUsers();
-
         void UpdatePasswordByUserId(int id, string password);
     }
 }

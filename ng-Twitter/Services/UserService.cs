@@ -16,11 +16,9 @@ namespace ng_Twitter.Services
 
         public User GetUserByEmail(string Email) => _context.Users.Include(t => t.Tweets).First(m => m.Email == Email);
 
-        public IEnumerable<User> GetAllUsers() => _context.Users.ToList();
-
         public User GetUserById(int id) => _context.Users.Include(t => t.Tweets).First(i => i.Id == id);
 
-        public ICollection<User> GetAllUsers() => _context.Users.Include(t => t.Tweets).ToList();
+        public IEnumerable<User> GetAllUsers() => _context.Users.Include(t => t.Tweets).ToList();
         
         public void UpdatePasswordByUserId(int id, string password)
         {
