@@ -1,7 +1,18 @@
-<div class="offset-3">
-  <form class="form-inline" style="margin-top: 4%">
-    <input class="col-md-3 form-control" placeholder="Phone, email or username "> &nbsp;&nbsp;&nbsp;
-    <input class="col-md-3 form-control" placeholder="Password">&nbsp;&nbsp;&nbsp;
+<div class="offset-2 col-md-8">
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="form-inline" style="margin-top: 4%" novalidate>
+    <div class="form-group">
+      <input class="form-control" id="email" placeholder="Email" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{'is-invalid': f.submitted && email.invalid}" required email> &nbsp;
+      <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+        <div *ngIf="email.errors.required">Email is required</div>
+        <div *ngIf="email.errors.email">Email must be a valid email address</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="password" placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{'is-invalid': f.submitted && password.invalid}" required> &nbsp;&nbsp;
+      <div *ngIf="f.submitted && password.errors" class="invalid-feedback">
+        <div *ngIf="password.errors.required">Password field is required</div>
+      </div>
+    </div>
     <button class="btn btn-outline-info" style="border-radius: 25px">Login</button>
   </form>
 </div>
