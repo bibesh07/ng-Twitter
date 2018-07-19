@@ -8,12 +8,9 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import {LoginComponent} from './login/login.component';
 import {FormsModule} from '@angular/forms';
 import {RegisterComponent} from './register/register.component';
-import {RouterModule} from '@angular/router';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-
-const rules = [
-  { path: 'register', component: RegisterComponent },
-];
+import { AppLoginRegisterLinkComponent } from './shared/app-login-register-link';
+import { IndexComponent } from './index/index.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +18,15 @@ const rules = [
     CounterComponent,
     LoginComponent,
     RegisterComponent,
+    AppLoginRegisterLinkComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
     FormsModule,
-    RouterModule.forRoot(rules),
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]

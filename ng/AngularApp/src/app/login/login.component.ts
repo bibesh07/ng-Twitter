@@ -1,20 +1,21 @@
 import {Component, ViewChild} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {UserService} from '../_services/user.service';
 
 @Component({
-  selector: 'login-form',
+  selector: 'app-login-form',
   templateUrl: './login.component.html'
 })
 
 export class LoginComponent {
   model: any = {};
 
-  constructor(private http: HttpClient){}
-
-  //angular object
-  //@ViewChild('email') emailVc;
+  constructor(
+    private userService: UserService) {}
 
   onSubmit() {
-    console.log('Value submitted');
+    this.userService.Login(this.model.email, this.model.password)
+      .subscribe(response => {
+        console.log('Login successfully');
+      });
   }
 }

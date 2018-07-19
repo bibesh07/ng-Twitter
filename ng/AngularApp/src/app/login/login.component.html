@@ -3,14 +3,14 @@
     <div class="form-group">
       <input class="form-control" id="email" placeholder="Email" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{'is-invalid': f.submitted && email.invalid}" required email> &nbsp;
       <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
-        <div *ngIf="email.errors.required">Email is required</div>
-        <div *ngIf="email.errors.email">Email must be a valid email address</div>
+        <div *ngIf="email?.errors.required">Email is required</div>
+        <div *ngIf="email?.errors.email">Email must be a valid email address</div>
       </div>
     </div>
     <div class="form-group">
       <input class="form-control" type="password" placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{'is-invalid': f.submitted && password.invalid}" required> &nbsp;&nbsp;
       <div *ngIf="f.submitted && password.errors" class="invalid-feedback">
-        <div *ngIf="password.errors.required">Password field is required</div>
+        <div *ngIf="password?.errors.required">Password field is required</div>
       </div>
     </div>
     <button class="btn btn-outline-info" style="border-radius: 25px">Login</button>

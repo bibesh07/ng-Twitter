@@ -1,26 +1,33 @@
-<form (submit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+<form (submit)="f.form.valid && onSubmit()" class="card col-md-6 form-center" #f="ngForm" novalidate>
   <fieldset>
-    <legend> Registration </legend>
+    <a routerLink="/" class="btn btn-outline-info btn-sm ">Go back</a>
+    <legend> {{title}} </legend>
+    <hr/>
     <div class="row">
-      <div class="col-md-12 form-group">
+      <div class="col-md-6 form-group">
           <input name="name" class="form-control" #name="ngModel" [(ngModel)]="model.name" [ngClass]="{'is-invalid': f.submitted && name.invalid}" placeholder="Enter your name" required/>
           <div *ngIf="f.submitted &&  name.invalid" class="invalid-feedback">
             Name field is required.
         </div>
       </div>
-      <div class="col-md-12 form-group">
-        <input name="username" class="form-control" #username="ngModel" [(ngModel)]="model.username" [ngClass]="{'is-invalid': f.submitted && username.invalid}" placeholder="Enter your username" required/>
-        <div *ngIf="f.submitted &&  username.invalid" class="invalid-feedback">
-          Username field is required.
+      <div class="col-md-6 form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">@</div>
+          </div>
+          <input name="username" class="form-control" #username="ngModel" [(ngModel)]="model.username" [ngClass]="{'is-invalid': f.submitted && username.invalid}" placeholder="Enter your username" required/>
+          <div *ngIf="f.submitted &&  username?.invalid" class="invalid-feedback">
+            Username field is required.
+          </div>
         </div>
       </div>
       <div class="col-md-12 form-group">
         <input name="email" class="form-control" #email="ngModel" [(ngModel)]="model.email" [ngClass]="{'is-invalid': f.submitted && email.invalid}" placeholder="Enter your Email" required email/>
         <div *ngIf="f.submitted &&  email.invalid" class="invalid-feedback">
-          <div *ngIf="email.errors.required">
+          <div *ngIf="email?.errors.required">
             Email field is required.
           </div>
-          <div *ngIf="email.errors.email">
+          <div *ngIf="email?.errors.email">
             Email format is incorrect
           </div>
         </div>
@@ -28,7 +35,7 @@
       <div class="col-md-12 form-group">
         <input name="phone" #phone="ngModel" class="form-control" [(ngModel)]="model.phone" [ngClass]="{'is-invalid': f.submitted && phone.invalid }" placeholder="Enter your Phone" required />
         <div *ngIf="f.submitted && phone.invalid" class="invalid-feedback">
-          <div *ngIf="phone.errors.required">
+          <div *ngIf="phone?.errors.required">
             Phone number is required.
           </div>
         </div>
@@ -36,10 +43,10 @@
       <div class="col-md-12 form-group">
         <input name="password" #password="ngModel" class="form-control" [(ngModel)]="model.password" [ngClass]="{'is-invalid': f.submitted && password.invalid }" placeholder="Enter your Password" required minlength="6"/>
         <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
-          <div *ngIf="password.errors.required">
+          <div *ngIf="password?.errors.required">
             Password field is required.
           </div>
-          <div *ngIf="password.errors.minlength">
+          <div *ngIf="password?.errors.minlength">
             Minimum length for password is 6.
           </div>
         </div>
@@ -47,15 +54,13 @@
       <div class="col-md-12 form-group">
         <input name="confirmPassword" #confirmPassword="ngModel" class="form-control" [(ngModel)]="model.confirmPassword" [ngClass]="{'is-invalid': f.submitted && confirmPassword.invalid }" placeholder="Confirm your Password" required />
         <div *ngIf="f.submitted && confirmPassword.invalid" class="invalid-feedback">
-          <div *ngIf="confirmPassword.errors.required">
+          <div *ngIf="confirmPassword?.errors.required">
             Confirm Password field is required.
-          </div>
-          <div *ngIf="confirmPassword.errors.minlength">
-            Minimum length for password is 6.
           </div>
         </div>
       </div>
     </div>
-    <button type="submit"> Submit </button>
+    <button type="submit" class="btn btn-block btn-primary"> Submit </button>
+    <br/>
   </fieldset>
 </form>
