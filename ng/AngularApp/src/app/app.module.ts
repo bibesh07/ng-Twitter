@@ -11,6 +11,7 @@ import {RegisterComponent} from './register/register.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { AppLoginRegisterLinkComponent } from './shared/app-login-register-link';
 import { IndexComponent } from './index/index.component';
+import {AuthGuard} from './_guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { IndexComponent } from './index/index.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [HttpClient],
+  providers: [HttpClient, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

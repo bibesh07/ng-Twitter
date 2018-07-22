@@ -47,20 +47,24 @@ namespace ng_Twitter
             services.AddTransient<ITweetService, TweetService>();
             services.AddTransient<IUserService, UserService>();
 
-            var corsBuilder = new CorsPolicyBuilder();
-            corsBuilder.AllowAnyHeader();
-            corsBuilder.AllowAnyMethod();
-            corsBuilder.AllowAnyOrigin();
-            corsBuilder.AllowCredentials();
+            // Add service and create Policy with options
             services.AddCors(options =>
             {
-                options.AddPolicy("wildcard", corsBuilder.Build());
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
             });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseCors("CorsPolicy");
+
             app.UseSwagger();
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
@@ -73,6 +77,8 @@ namespace ng_Twitter
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseMiddleware(typeof(ErrorHandlingMiddleware));
+
             app.Use(async (context, next) => {
                 await next();
                 if (context.Response.StatusCode == 404 &&
@@ -83,10 +89,12 @@ namespace ng_Twitter
                     await next();
                 }
             });
-            app.UseMvcWithDefaultRoute();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseMiddleware(typeof(ErrorHandlingMiddleware));
+
+            app.UseMvcWithDefaultRoute();
+
+
         }
     }
 }

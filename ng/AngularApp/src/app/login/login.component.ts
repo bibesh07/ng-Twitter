@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {UserService} from '../_services/user.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class LoginComponent {
   onSubmit() {
     this.userService.Login(this.model.email, this.model.password)
       .subscribe(response => {
-        console.log('Login successfully');
+        console.log(response);
       });
   }
 }
