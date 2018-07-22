@@ -1,3 +1,8 @@
+<div *ngIf="errorMessage">
+  <ngb-alert [dismissible]="false" type="danger">
+    {{errorMessage}}
+  </ngb-alert>
+</div>
 <div class="offset-2 col-md-8">
   <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" class="form-inline" style="margin-top: 4%" novalidate>
     <div class="form-group">

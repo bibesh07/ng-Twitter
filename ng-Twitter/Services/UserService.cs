@@ -14,7 +14,7 @@ namespace ng_Twitter.Services
             _context = context;
         }
 
-        public User GetUserByEmail(string Email) => _context.Users.Include(t => t.Tweets).First(m => m.Email == Email);
+        public User GetUserByEmail(string Email) => _context.Users.FirstOrDefault(m => m.Email == Email);
 
         public User GetUserById(int id) => _context.Users.Include(t => t.Tweets).First(i => i.Id == id);
 
@@ -32,7 +32,12 @@ namespace ng_Twitter.Services
         {
             var user = this.GetUserByEmail(email);
 
-            return (user.Password == password) ? user : null;
+            if (user == null || user.Password != password)
+            {
+                return null;
+            }
+
+            return user;
             
         }
     }

@@ -12,6 +12,8 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { AppLoginRegisterLinkComponent } from './shared/app-login-register-link';
 import { IndexComponent } from './index/index.component';
 import {AuthGuard} from './_guards/auth.guard';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import {AuthGuard} from './_guards/auth.guard';
     AngularFontAwesomeModule,
     FormsModule,
     HttpClientModule,
+    NgbModule.forRoot()
   ],
   providers: [HttpClient, AuthGuard],
   bootstrap: [AppComponent]

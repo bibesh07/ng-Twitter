@@ -1,6 +1,7 @@
 import { Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {catchError} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -9,8 +10,8 @@ import {HttpClient} from '@angular/common/http';
 export class UserService {
   constructor(private http: HttpClient) {
   }
-    Login(email: string, password: string)  {
-      return this.http.post<any>('http://localhost:7000/api/users/login', [email, password]);
+    Login(email: string, password: string) {
+      return this.http.post<any>('http://localhost:7000/api/users/login', {'Email': email, 'Password': password});
     }
 }
 
