@@ -10,6 +10,7 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
     Login(email: string, password: string)  {
-      return this.http.get<any>('/api/user/login');
+      return this.http.post<any>('http://localhost:7000/api/users/login', [email, password]);
     }
 }
+

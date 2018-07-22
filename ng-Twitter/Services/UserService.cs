@@ -28,5 +28,12 @@ namespace ng_Twitter.Services
             _context.SaveChanges();
         }
         
+        public User Login(string email, string password)
+        {
+            var user = this.GetUserByEmail(email);
+
+            return (user.Password == password) ? user : null;
+            
+        }
     }
 }

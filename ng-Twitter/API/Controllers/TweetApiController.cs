@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ClassLibray.Core.Features.Tweets;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ng_Twitter.Controllers
@@ -18,6 +19,7 @@ namespace ng_Twitter.Controllers
         }
 
         [HttpGet("GetAllTweets")]
+        [EnableCors("")]
         public IActionResult GetAllTweets()
         {
             var tweets = _tweetService.GetAllTweets();
