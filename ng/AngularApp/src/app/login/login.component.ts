@@ -22,7 +22,7 @@ export class LoginComponent {
       .subscribe(response => {
         console.log(response);
         if (response > 0) {
-          localStorage.setItem('user__id', response);
+          localStorage.setItem('user_id', response);
           this.router.navigate(['/home']);
         } else {
           this.errorMessage = 'Invalid Login Details';

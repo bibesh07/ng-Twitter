@@ -11,11 +11,9 @@ import {RegisterComponent} from './register/register.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { AppLoginRegisterLinkComponent } from './shared/app-login-register-link';
 import { IndexComponent } from './index/index.component';
-<<<<<<< HEAD
 import { HomeComponent } from './home/home.component';
 import { TweetComponent } from './tweet/tweet.component';
 import { LoginTemplateComponent } from './shared/login-template/login-template.component';
-=======
 import {AuthGuard} from './_guards/auth.guard';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 

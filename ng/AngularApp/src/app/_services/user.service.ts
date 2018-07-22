@@ -13,5 +13,13 @@ export class UserService {
     Login(email: string, password: string) {
       return this.http.post<any>('http://localhost:7000/api/users/login', {'Email': email, 'Password': password});
     }
+
+    Logout(): void {
+      localStorage.removeItem('user_id');
+    }
+
+    getUser(id: number): any {
+      return this.http.get<any>('http://localhost:7000/api/users/GetUserById/' + id);
+    }
 }
 

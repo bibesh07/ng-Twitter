@@ -25,7 +25,7 @@ public class DataContext : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseSqlServer("Server=localhost;Database=TwitterClone;User Id=sa;Password=Amr!t1476");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=TwitterClone;Trusted_Connection=True");
         }
     }
 }
