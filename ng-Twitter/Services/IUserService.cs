@@ -7,17 +7,10 @@ namespace ng_Twitter.Services
     {
         User GetUserByEmail(string email);
 
-<<<<<<< HEAD
         IEnumerable<User> GetAllUsers();
 
         User GetUserById(int id);
         
-=======
-        User GetUserById(int id);
-        
-        ICollection<User> GetAllUsers();
-
->>>>>>> amrit
         void UpdatePasswordByUserId(int id, string password);
     }
 }

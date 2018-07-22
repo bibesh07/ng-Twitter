@@ -18,11 +18,7 @@ namespace ng_Twitter.Services
 
         public User GetUserById(int id) => _context.Users.Include(t => t.Tweets).First(i => i.Id == id);
 
-<<<<<<< HEAD
         public IEnumerable<User> GetAllUsers() => _context.Users.Include(t => t.Tweets).ToList();
-=======
-        public ICollection<User> GetAllUsers() => _context.Users.Include(t => t.Tweets).ToList();
->>>>>>> amrit
         
         public void UpdatePasswordByUserId(int id, string password)
         {
@@ -32,7 +28,6 @@ namespace ng_Twitter.Services
             _context.SaveChanges();
         }
         
-<<<<<<< HEAD
         public User Login(string email, string password)
         {
             var user = this.GetUserByEmail(email);
@@ -40,7 +35,5 @@ namespace ng_Twitter.Services
             return (user.Password == password) ? user : null;
             
         }
-=======
->>>>>>> amrit
     }
 }
