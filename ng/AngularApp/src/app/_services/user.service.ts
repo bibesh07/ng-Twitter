@@ -18,7 +18,7 @@ export class UserService {
       localStorage.removeItem('user_id');
     }
 
-    getUser(id: number): any {
+    getUser(id: number): Observable<any> {
       return this.http.get<any>('http://localhost:7000/api/users/GetUserById/' + id);
     }
 }

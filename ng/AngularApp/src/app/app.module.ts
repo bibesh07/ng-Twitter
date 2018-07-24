@@ -14,8 +14,10 @@ import { IndexComponent } from './index/index.component';
 import { HomeComponent } from './home/home.component';
 import { TweetComponent } from './tweet/tweet.component';
 import { LoginTemplateComponent } from './shared/login-template/login-template.component';
-import {AuthGuard} from './_guards/auth.guard';
+import {AuthGuard} from './_guards';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {TweetService} from "./_services/tweet.service";
+import {UserService} from "./_services/user.service";
 
 
 @NgModule({
@@ -38,7 +40,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     NgbModule.forRoot()
   ],
-  providers: [HttpClient, AuthGuard],
+  providers: [HttpClient, AuthGuard, TweetService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

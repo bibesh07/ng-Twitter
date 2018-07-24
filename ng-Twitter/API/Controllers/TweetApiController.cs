@@ -19,7 +19,6 @@ namespace ng_Twitter.Controllers
         }
 
         [HttpGet("GetAllTweets")]
-        [EnableCors("")]
         public IActionResult GetAllTweets()
         {
             var tweets = _tweetService.GetAllTweets();

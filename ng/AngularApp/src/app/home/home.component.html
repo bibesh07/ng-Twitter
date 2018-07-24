@@ -7,10 +7,9 @@
       <div class="card-body">
         <p class="card-text">
           <fa name="twitter" size="2x"></fa>
-          Name {{currentUser.name}}
-        </p>
+          {{currentUser?.Name}}
         <p class="card-text">
-          @Username
+          @{{currentUser?.UserName}}
         </p>
         <p class="card-text">
           Tweets
@@ -24,10 +23,14 @@
 
   <div class=" col-md-6">
     <div class="container">
+      <div class="form-control post-contents">
+        <textarea class="form-control" rows="1" placeholder="Write Something">
+        </textarea>
+        <button class="btn btn-outline-primary tweet-button">Tweet</button>
+      </div>
       <div class="card">
-        <div class="card-body">
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div *ngFor="let tweet of allTweets" class="card-body">
+          <p class="card-text">{{tweet?.content}}</p>
         </div>
       </div>
     </div>
