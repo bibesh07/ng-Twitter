@@ -12,4 +12,8 @@ public interface ITweetService
     IEnumerable<Tweet> GetTweetsByUserId(int Id);
 
     void AddTweet(Tweet tweet);
+
+    int GetUserTweetNumber(int id);
+
+    void DeleteTweet(int id);
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ClassLibray.Core.Features.Tweets;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Models.Core.Features.Users;
 
 namespace ng_Twitter.Controllers
 {
@@ -22,7 +23,7 @@ namespace ng_Twitter.Controllers
         public IActionResult GetAllTweets()
         {
             var tweets = _tweetService.GetAllTweets();
-            return Ok(tweets);
+            return Ok(tweets.Reverse());
         }
 
         [HttpGet("GetTweetsByUserId/{id}")]
@@ -36,7 +37,22 @@ namespace ng_Twitter.Controllers
         public IActionResult AddTweet([FromBody] Tweet tweet)
         {
             _tweetService.AddTweet(tweet);
+            //return success or error message
             return Ok();
+        }
+        
+        [HttpPost("DeleteTweet")]
+        public IActionResult DeleteTweet([FromBody] int tweetId)
+        {
+            //_tweetService.DeleteTweet(tweetId);
+            //return success or error message
+            return Ok(tweetId);
+        }
+        
+        [HttpGet("GetUserTweetCount/{userId}")]
+        public IActionResult GetUserTweetCount(int userId)
+        {
+            return Ok(_tweetService.GetUserTweetNumber(userId));
         }
     }
 }

@@ -27,7 +27,7 @@ namespace ng_Twitter.Services
             _context.Update(user);
             _context.SaveChanges();
         }
-        
+                
         public User Login(string email, string password)
         {
             var user = this.GetUserByEmail(email);

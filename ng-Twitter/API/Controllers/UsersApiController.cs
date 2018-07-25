@@ -1,28 +1,35 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Models.Core.Features.Users;
 using ng_Twitter.Services;
+using Newtonsoft.Json;
 
 [Route("api/Users")]
 public class UsersApiController : Controller
 {
     private readonly IUserService _userService;
+
+    private readonly ITweetService _tweetService;
     
-    
-    public UsersApiController(IUserService userService)
+    public UsersApiController(IUserService userService, ITweetService tweetService)
     {
         _userService = userService;
+        _tweetService = tweetService;
     }
 
     [HttpGet("GetUserByEmail/{email}")]
-    public User GetUserByEmail(string email)
+    public IActionResult GetUserByEmail(string email)
     {
-        return _userService.GetUserByEmail(email);
+        return Ok(_userService.GetUserByEmail(email));
     }
 
     [HttpGet("GetUserById/{userId}")]
-    public User GetUserById(int userId)
+    public IActionResult GetUserById(int userId)
     {
-        return _userService.GetUserById(userId);
+        var userInfo = _userService.GetUserById(userId);
+        //int userTweetCount = _tweetService.GetUserTweetNumber(userId);
+        
+        //return Json(userInfo);
+        return Ok(userInfo);
     }
 
     [HttpGet("GetAllUsers")]

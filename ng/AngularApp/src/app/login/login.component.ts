@@ -26,6 +26,7 @@ export class LoginComponent {
           this.router.navigate(['/home']);
         } else {
           this.errorMessage = 'Invalid Login Details';
+          localStorage.removeItem('user_id');
         }
       });
   }

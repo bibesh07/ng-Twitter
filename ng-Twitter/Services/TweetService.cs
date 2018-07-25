@@ -14,7 +14,9 @@ public class TweetService: ITweetService
         _dataContext = dataContext;
     }
 
-    public IEnumerable<Tweet> GetAllTweets() => _dataContext.Tweets.ToList();
+    public int GetUserTweetNumber(int id) => _dataContext.Tweets.Count(u => u.UserId == id);
+    
+    public IEnumerable<Tweet> GetAllTweets() => _dataContext.Tweets.Include("User").ToList();
 
     public IEnumerable<Tweet> GetTweetsByUserId(int Id) => _dataContext.Tweets.Where(t => t.UserId == Id);
 
@@ -22,5 +24,15 @@ public class TweetService: ITweetService
     {
         _dataContext.Tweets.Add(tweet);
         _dataContext.SaveChanges();
+    }
+
+    public void DeleteTweet(int id)
+    {
+        var tweet = _dataContext.Tweets.Where(u => u.Id == id).SingleOrDefault();
+        if (tweet != null)
+        {
+            _dataContext.Tweets.Remove(tweet);
+            _dataContext.SaveChanges();
+        }
     }
 }

@@ -13,6 +13,29 @@ export class TweetService {
   getAllTweets(): Observable<any> {
     return this.http.get<any>('http://localhost:7000/api/tweets/GetAllTweets');
   }
+
+  getUserTweetCount(id: number): Observable<any> {
+    return this.http.get<any>('http://localhost:7000/api/tweets/GetUserTweetCount/' + id);
+  }
+
+  tweet(content:string, id: number): Observable<any> {
+    return this.http.post<any>(
+      'http://localhost:7000/api/tweets/AddTweet/',
+      {
+              'content': content,
+              'userId': id,
+            }
+      );
+  }
+
+  deleteTweet(id: number): Observable<any> {
+    return this.http.post<any>(
+      'http://localhost:7000/api/tweets/DeleteTweet/',
+      {
+        'tweetId': id,
+      }
+    );
+  }
 }
 
 
