@@ -41,12 +41,12 @@ namespace ng_Twitter.Controllers
             return Ok();
         }
         
-        [HttpPost("DeleteTweet")]
-        public IActionResult DeleteTweet([FromBody] int tweetId)
+        [HttpDelete("DeleteTweet/{id}")]
+        public IActionResult DeleteTweet(int id)
         {
-            //_tweetService.DeleteTweet(tweetId);
+            _tweetService.DeleteTweet(id);
             //return success or error message
-            return Ok(tweetId);
+            return Ok(id);
         }
         
         [HttpGet("GetUserTweetCount/{userId}")]

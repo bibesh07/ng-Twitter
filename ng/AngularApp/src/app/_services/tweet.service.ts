@@ -29,12 +29,8 @@ export class TweetService {
   }
 
   deleteTweet(id: number): Observable<any> {
-    return this.http.post<any>(
-      'http://localhost:7000/api/tweets/DeleteTweet/',
-      {
-        'tweetId': id,
-      }
-    );
+    return this.http.delete<any>(
+      'http://localhost:7000/api/tweets/DeleteTweet/' + id);
   }
 }
 

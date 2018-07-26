@@ -37,14 +37,14 @@ export class HomeComponent implements OnInit {
       this.tweetService.getAllTweets()
         .subscribe(response => {
           this.allTweets = response;
-        })
+        });
     }
 
     getUserTweetCount(): void {
       this.tweetService.getUserTweetCount(this.current_user_id)
         .subscribe(response => {
           this.totalUserTweets = response;
-        })
+        });
     }
 
     tweet(): void {
@@ -58,9 +58,8 @@ export class HomeComponent implements OnInit {
     console.log($event.target.value);
       this.tweetService.deleteTweet($event.target.value)
         .subscribe(response => {
-          console.log(response);
-          //this.ngOnInit();
-        })
+          this.ngOnInit();
+        });
     }
 }
 
