@@ -31,7 +31,7 @@
       <div class="form-control post-contents">
           <textarea [(ngModel)]="content"  class="form-control tweet-button" rows="1" placeholder="What's happening?">
           </textarea>
-          <button (click)="tweet()" class="btn btn-sm btn-outline-primary tweet-button">Tweet</button>
+          <button [disabled]="this.content?.trim().length < 1" (click)="tweet()" class="btn btn-sm btn-outline-primary tweet-button">Tweet</button>
       </div>
       <div class="card">
         <div *ngFor="let tweet of allTweets" class="card-body">

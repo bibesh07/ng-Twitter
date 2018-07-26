@@ -36,15 +36,24 @@ namespace ng_Twitter.Controllers
         [HttpPost("AddTweet")]
         public IActionResult AddTweet([FromBody] Tweet tweet)
         {
-            _tweetService.AddTweet(tweet);
+            if (tweet.Content.Trim() != "")
+            {
+                _tweetService.AddTweet(tweet);
+            }
             //return success or error message
             return Ok();
         }
         
-        [HttpDelete("DeleteTweet/{id}")]
-        public IActionResult DeleteTweet(int id)
+        [HttpDelete("DeleteTweet/{id}/{loggedInUserId}")]
+        public IActionResult DeleteTweet(int id, int loggedInUserId)
         {
-            _tweetService.DeleteTweet(id);
+            var tweet = _tweetService.GetTweetById(id);
+            var belongsTo = tweet.UserId;
+
+            if (belongsTo == loggedInUserId)
+            {
+                _tweetService.DeleteTweet(id);
+            }
             //return success or error message
             return Ok(id);
         }

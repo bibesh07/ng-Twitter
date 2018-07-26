@@ -16,4 +16,6 @@ public interface ITweetService
     int GetUserTweetNumber(int id);
 
     void DeleteTweet(int id);
+
+    Tweet GetTweetById(int id);
 }

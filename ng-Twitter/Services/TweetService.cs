@@ -35,4 +35,6 @@ public class TweetService: ITweetService
             _dataContext.SaveChanges();
         }
     }
+
+    public Tweet GetTweetById(int id) => _dataContext.Tweets.SingleOrDefault(u => u.Id == id);
 }

@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
 
     deleteTweet($event): void {
     console.log($event.target.value);
-      this.tweetService.deleteTweet($event.target.value)
+      this.tweetService.deleteTweet($event.target.value, this.current_user_id)
         .subscribe(response => {
           this.ngOnInit();
         });

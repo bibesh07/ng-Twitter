@@ -28,9 +28,9 @@ export class TweetService {
       );
   }
 
-  deleteTweet(id: number): Observable<any> {
+  deleteTweet(id: number, loggedInUser: number): Observable<any> {
     return this.http.delete<any>(
-      'http://localhost:7000/api/tweets/DeleteTweet/' + id);
+      'http://localhost:7000/api/tweets/DeleteTweet/' + id + '/' + loggedInUser);
   }
 }
 
