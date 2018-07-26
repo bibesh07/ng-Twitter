@@ -52,6 +52,30 @@ public class UsersApiController : Controller
 
         return (user == null) ? 0 : user.Id;
     }
-         
+    
+
+    [HttpPost("Register")]
+    public IActionResult Register([FromBody] User newUser)
+    {
+        if(_userService.GetUserByEmail(newUser.Email) != null)
+        {
+            var error = JsonConvert.SerializeObject(new {
+                status = "Error",
+                message = "User with same email already exist",
+                type = "danger",
+            });
+            return Ok(error);
+        }
+
+        _userService.Register(newUser);
+
+        var success = JsonConvert.SerializeObject(new
+        {
+            status = "Success",
+            message = "User Successfully Registered. Please login using the entered credentials.",
+            type = "success",
+        });
+        return Ok(success);
+    }
     
 }

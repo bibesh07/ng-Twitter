@@ -1,8 +1,11 @@
-<form (submit)="f.form.valid && onSubmit()" class="card col-md-6 form-center" #f="ngForm" novalidate>
+<form (submit)="f.form.valid && onSubmit(f)" class="card col-md-6 form-center" #f="ngForm" novalidate>
   <fieldset>
     <a routerLink="/" class="btn btn-outline-info btn-sm ">Go back</a>
     <legend> {{title}} </legend>
     <hr/>
+    <div *ngIf="this.message">
+      <ngb-alert type="{{this.type}}" > {{message}} </ngb-alert>
+    </div>
     <div class="row">
       <div class="col-md-6 form-group">
           <input name="name" class="form-control" #name="ngModel" [(ngModel)]="model.name" [ngClass]="{'is-invalid': f.submitted && name.invalid}" placeholder="Enter your name" required/>
@@ -52,12 +55,7 @@
         </div>
       </div>
       <div class="col-md-12 form-group">
-        <input name="confirmPassword" #confirmPassword="ngModel" class="form-control" [(ngModel)]="model.confirmPassword" [ngClass]="{'is-invalid': f.submitted && confirmPassword.invalid }" placeholder="Confirm your Password" required />
-        <div *ngIf="f.submitted && confirmPassword.invalid" class="invalid-feedback">
-          <div *ngIf="confirmPassword?.errors.required">
-            Confirm Password field is required.
-          </div>
-        </div>
+        <textarea name="bio" #bio="ngModel" class="form-control" [(ngModel)]="model.bio" rows="3" placeholder="Tell us something about yourself..."> </textarea>
       </div>
     </div>
     <button type="submit" class="btn btn-block btn-primary"> Submit </button>

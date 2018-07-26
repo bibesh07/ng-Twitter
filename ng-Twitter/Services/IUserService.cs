@@ -14,5 +14,7 @@ namespace ng_Twitter.Services
         void UpdatePasswordByUserId(int id, string password);
 
         User Login(string email, string password);
+
+        void Register(User user);
     }
 }

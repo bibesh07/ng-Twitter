@@ -40,5 +40,11 @@ namespace ng_Twitter.Services
             return user;
             
         }
+
+        public void Register(User user)
+        {
+            _context.Add(user);
+            _context.SaveChanges();
+        }
     }
 }

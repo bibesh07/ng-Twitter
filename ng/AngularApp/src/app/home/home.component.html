@@ -36,9 +36,12 @@
       <div class="card">
         <div *ngFor="let tweet of allTweets" class="card-body">
           <div class="card-text">
-            <p><fa name="user-circle" size="2x"></fa>&nbsp;&nbsp;
+            <p>
+              <fa name="user-circle" size="2x"></fa>&nbsp;&nbsp;
               <strong>{{tweet?.user.name}}</strong> &nbsp;<small>@{{tweet?.user.userName}}</small>
-              <button (click)="deleteTweet($event)" value="{{tweet?.id}}" class="btn btn-danger btn-sm pull-right"><fa name="trash"></fa> &nbsp; Delete </button>
+              <span *ngIf="current_user_id === tweet?.user.id">
+                <button (click)="deleteTweet($event)" value="{{tweet?.id}}" class="btn btn-danger btn-sm pull-right"><fa name="trash"></fa> &nbsp;Delete </button>
+              </span>
             </p>
             <div class="container">
               <p>{{tweet?.content}}</p>
