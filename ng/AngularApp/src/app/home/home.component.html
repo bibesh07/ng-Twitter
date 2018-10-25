@@ -29,7 +29,7 @@
 
   <div class=" col-md-6">
       <div class="form-control post-contents">
-          <textarea [(ngModel)]="content"  class="form-control tweet-button" rows="1" placeholder="What's happening?">
+          <textarea [(ngModel)]="content" class="form-control tweet-button" rows="1" placeholder="What's happening?">
           </textarea>
           <button [disabled]="this.content?.trim().length < 1" (click)="tweet()" class="btn btn-sm btn-outline-primary tweet-button">Tweet</button>
       </div>

@@ -50,6 +50,7 @@ export class HomeComponent implements OnInit {
     tweet(): void {
       this.tweetService.tweet(this.content, this.current_user_id)
         .subscribe(response => {
+          this.content = '';
           this.ngOnInit();
         });
     }

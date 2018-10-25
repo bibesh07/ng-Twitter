@@ -22,13 +22,21 @@
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2 search-input" type="search" placeholder="Search Twitter" aria-label="Search">
       <nav class="nav-item dropdown">
-        <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <fa name="user-circle" size="2x"></fa>
-        </a>
+        <div ngbDropdown>
+          <a class="nav-link" ngbDropdownToggle>
+            <fa name="user-circle" size="2x"></fa>
+          </a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item">{{currentUser?.name}} <p><small>@{{currentUser?.userName}}</small></p></button>
+            <hr/>
+            <button class="dropdown-item"><fa name="user" size="x"></fa>&nbsp;&nbsp;Profile</button>
+            <button class="dropdown-item"><fa name="list" size="x"></fa>&nbsp;&nbsp;list</button>
+            <button class="dropdown-item"><fa name="bolt" size="x"></fa>&nbsp;&nbsp;&nbsp;&nbsp;Moment</button>
+            <button (click)="logOut()" class="dropdown-item"><fa name="power-off" size="x"></fa>&nbsp;&nbsp;Logout</button>
+          </div>
+        </div>
       </nav>
       <button class="btn btn-info" type="button" style="border-radius: 25px;">Tweet</button>
-      <button (click)="logOut()" class="btn btn-info" type="button" style="border-radius: 25px;">Logout</button>
-
     </form>
   </div>
 </nav>

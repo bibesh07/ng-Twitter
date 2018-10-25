@@ -9,12 +9,24 @@ import {Router} from '@angular/router';
 })
 export class LoginTemplateComponent implements OnInit {
 
+  currentUser: any;
+  current_user_id = parseInt(localStorage.getItem('user_id'), 10);
+
   constructor(
     private userService: UserService,
     private router: Router,
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.load_user_data();
+  }
+
+  load_user_data(): void {
+    this.userService.getUser(this.current_user_id)
+      .subscribe(response => {
+        this.currentUser = response;
+      });
+  }
 
   logOut() {
     this.userService.Logout();
